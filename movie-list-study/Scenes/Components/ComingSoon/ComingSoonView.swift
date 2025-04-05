@@ -15,7 +15,7 @@ final class ComingSoonView: UIView {
     private lazy var warningImage: UIImageView = {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.downloaded(from: "https://purepng.com/public/uploads/large/under-construction-yom.png")
+        element.load(url: "https://purepng.com/public/uploads/large/under-construction-yom.png")
         return element
     }()
 

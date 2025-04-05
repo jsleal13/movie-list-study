@@ -13,14 +13,8 @@ struct CellIdentifier {
 }
 
 class HomeView: UIView {
-    private lazy var searchBox: UITextView = {
-        let textView = UITextView()
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
-    }()
-
     private lazy var mainCollectionView: UICollectionView = {
-        let collectionView = UICollectionView()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifier.homeCell)
@@ -32,4 +26,32 @@ class HomeView: UIView {
         collectionView.setCollectionViewLayout(layout, animated: false)
         return collectionView
     }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpViews()
+        setUpConstraints()
+    }
+
+    func setDelegates(with delegate: UICollectionViewDelegate & UICollectionViewDataSource) {
+        mainCollectionView.delegate = delegate
+        mainCollectionView.dataSource = delegate
+    }
+
+    private func setUpViews() {
+        addSubview(mainCollectionView)
+    }
+
+    private func setUpConstraints() {
+        NSLayoutConstraint.activate([
+            mainCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            mainCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            mainCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

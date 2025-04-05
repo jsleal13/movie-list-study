@@ -19,7 +19,7 @@ class TabBarViewController: UITabBarController {
     }
 
     func buildHome() -> UIViewController {
-        let homeViewController = HomeViewController()
+        let homeViewController = HomeViewController(viewModel: HomeViewModel())
         homeViewController.tabBarItem = UITabBarItem(title: "Início", image: .add, tag: 0)
 
         return homeViewController

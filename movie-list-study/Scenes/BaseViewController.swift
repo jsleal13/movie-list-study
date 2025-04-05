@@ -14,4 +14,3 @@ class BaseViewController: UIViewController {
         view.backgroundColor = .black
     }
 }
-

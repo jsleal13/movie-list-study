@@ -25,10 +25,22 @@ protocol RequestInfos {
 
 extension RequestInfos {
     var baseURL: String {
-        "https://moviesdatabase.p.rapidapi.com/"
+        "https://api.themoviedb.org/"
     }
 
-    var accessToken: String {
-        "fae0b0aea3msh0298238ab1eb40cp1ed49cjsnbc899cbc25dd"
+    var accessToken: String? {
+        "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkODg3MGRlMDU5N2FmZjc3MzNmZDNjMWIzN2UxYmJlOCIsIm5iZiI6MTc0Mzg3MzEwNy4yMDcsInN1YiI6IjY3ZjE2NDUzMGM3OTFiZWI1N2FkNTk0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OFJqypVzu36aMts6nE0n8W81Pl8LQk9BIDOrPt4DBXE"
+    }
+
+    var body: [String :  String]? {
+        nil
+    }
+
+    var parameters: [String : String]? {
+        nil
+    }
+
+    var httpMethod: HTTPMethodType {
+        .get
     }
 }

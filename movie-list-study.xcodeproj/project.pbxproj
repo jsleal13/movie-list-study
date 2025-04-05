@@ -25,6 +25,9 @@
 		73897BC72DA18E7B006DD79E /* ComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BC62DA18E7B006DD79E /* ComingSoonViewController.swift */; };
 		73897BC92DA18EC9006DD79E /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BC82DA18EC9006DD79E /* ComingSoonView.swift */; };
 		73897BCF2DA191BE006DD79E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BCE2DA191BE006DD79E /* UIImageView+Extensions.swift */; };
+		73897BD22DA19984006DD79E /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BD12DA19984006DD79E /* MovieModel.swift */; };
+		73897BD52DA1B157006DD79E /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BD42DA1B157006DD79E /* HomeService.swift */; };
+		73897BD92DA1B21C006DD79E /* HomeRequestInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BD82DA1B21C006DD79E /* HomeRequestInfos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		73897BC62DA18E7B006DD79E /* ComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonViewController.swift; sourceTree = "<group>"; };
 		73897BC82DA18EC9006DD79E /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
 		73897BCE2DA191BE006DD79E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		73897BD12DA19984006DD79E /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		73897BD42DA1B157006DD79E /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		73897BD82DA1B21C006DD79E /* HomeRequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequestInfos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 		73559F6E2D9FF5A00093B8C6 /* movie-list-study */ = {
 			isa = PBXGroup;
 			children = (
+				73897BD02DA19978006DD79E /* Model */,
 				73559F7D2D9FF5A20093B8C6 /* Info.plist */,
 				73897BCA2DA190C3006DD79E /* Extensions */,
 				73897BC32DA18E2B006DD79E /* Scenes */,
@@ -157,8 +164,8 @@
 		73559FA42D9FFC3B0093B8C6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				73559FA52D9FFC980093B8C6 /* RequestInfos.swift */,
-				73559FA72DA0A18A0093B8C6 /* APIClient.swift */,
+				73897BD62DA1B208006DD79E /* Home */,
+				73897BD32DA1B143006DD79E /* Base */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -224,6 +231,32 @@
 				73897BCE2DA191BE006DD79E /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		73897BD02DA19978006DD79E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73897BD12DA19984006DD79E /* MovieModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73897BD32DA1B143006DD79E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				73559FA52D9FFC980093B8C6 /* RequestInfos.swift */,
+				73559FA72DA0A18A0093B8C6 /* APIClient.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		73897BD62DA1B208006DD79E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				73897BD42DA1B157006DD79E /* HomeService.swift */,
+				73897BD82DA1B21C006DD79E /* HomeRequestInfos.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +389,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73897BD22DA19984006DD79E /* MovieModel.swift in Sources */,
 				73897BCF2DA191BE006DD79E /* UIImageView+Extensions.swift in Sources */,
+				73897BD92DA1B21C006DD79E /* HomeRequestInfos.swift in Sources */,
 				73559F742D9FF5A00093B8C6 /* BaseViewController.swift in Sources */,
 				73559FA82DA0A18B0093B8C6 /* APIClient.swift in Sources */,
 				73559F702D9FF5A00093B8C6 /* AppDelegate.swift in Sources */,
@@ -364,6 +399,7 @@
 				73559FA32D9FFC310093B8C6 /* HomeViewModel.swift in Sources */,
 				73897BBF2DA18C2B006DD79E /* HomeCollectionViewCell.swift in Sources */,
 				73897BBC2DA189E3006DD79E /* HomeView.swift in Sources */,
+				73897BD52DA1B157006DD79E /* HomeService.swift in Sources */,
 				73559FA12D9FFC200093B8C6 /* HomeViewController.swift in Sources */,
 				73897BC22DA18DCD006DD79E /* TabBarViewController.swift in Sources */,
 				73897BC72DA18E7B006DD79E /* ComingSoonViewController.swift in Sources */,
