@@ -1,0 +1,89 @@
+//
+//  ComingSoonView.swift
+//  movie-list-study
+//
+//  Created by Janine Silva Leal on 05/04/25.
+//
+import UIKit
+import Foundation
+
+final class ComingSoonView: UIView {
+    private let leading: CGFloat = 32
+    private let trailing: CGFloat = -32
+    private let imageHeight: CGFloat = 180
+
+    private lazy var warningImage: UIImageView = {
+        let element = UIImageView()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.downloaded(from: "https://purepng.com/public/uploads/large/under-construction-yom.png")
+        return element
+    }()
+
+    private lazy var titleLabel: UILabel = {
+        let element = UILabel()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.text = "Oops!"
+//        element.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.titleM)
+        element.textColor = .white
+        return element
+    }()
+
+    private lazy var subtitleLabel: UILabel = {
+        let element = UILabel()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.numberOfLines = 0
+        element.textAlignment = .center
+        element.lineBreakMode = .byWordWrapping
+//        element.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyM)
+        element.textColor = .white
+        element.text = "Esta página está em contrução."
+        return element
+    }()
+
+    private lazy var mainStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [warningImage, titleLabel, subtitleLabel])
+        stack.axis = .vertical
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = 16
+        stack.contentMode = .scaleAspectFit
+        stack.alignment = .center
+        return stack
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addViews()
+        setUpConstraints()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func addViews(){
+        addSubview(mainStackView)
+    }
+
+    private func setUpConstraints(){
+        NSLayoutConstraint.activate([
+            mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            mainStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leading),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: trailing),
+
+            warningImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leading),
+            warningImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: trailing),
+            warningImage.heightAnchor.constraint(equalToConstant: imageHeight)
+        ])
+    }
+
+    func setNavBar(viewController: UIViewController?) {
+        guard let viewController = viewController else { return }
+        viewController.title = viewController.tabBarItem.title
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = .systemPurple
+        viewController.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+        viewController.navigationController?.navigationBar.barTintColor = .systemPurple
+        viewController.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+    }
+}
