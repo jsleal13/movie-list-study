@@ -8,13 +8,12 @@ import UIKit
 import Foundation
 
 final class ComingSoonView: UIView {
-    private let leading: CGFloat = 32
-    private let trailing: CGFloat = -32
-    private let imageHeight: CGFloat = 180
+    private let imageHeight: CGFloat = 150
 
     private lazy var warningImage: UIImageView = {
         let element = UIImageView()
         element.translatesAutoresizingMaskIntoConstraints = false
+        element.contentMode = .scaleAspectFit
         element.load(url: "https://purepng.com/public/uploads/large/under-construction-yom.png")
         return element
     }()
@@ -23,8 +22,7 @@ final class ComingSoonView: UIView {
         let element = UILabel()
         element.translatesAutoresizingMaskIntoConstraints = false
         element.text = "Oops!"
-//        element.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.titleM)
-        element.textColor = .white
+        element.textColor = AppColors.textColor
         return element
     }()
 
@@ -34,9 +32,8 @@ final class ComingSoonView: UIView {
         element.numberOfLines = 0
         element.textAlignment = .center
         element.lineBreakMode = .byWordWrapping
-//        element.font = AndesStyleSheetManager.styleSheet.regularSystemFont(size: AndesFontSize.bodyM)
-        element.textColor = .white
-        element.text = "Esta página está em contrução."
+        element.textColor = AppColors.textColor
+        element.text = "This page is not available yet. Try again later"
         return element
     }()
 
@@ -68,11 +65,7 @@ final class ComingSoonView: UIView {
         NSLayoutConstraint.activate([
             mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             mainStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leading),
-            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: trailing),
 
-            warningImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leading),
-            warningImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: trailing),
             warningImage.heightAnchor.constraint(equalToConstant: imageHeight)
         ])
     }
@@ -81,7 +74,6 @@ final class ComingSoonView: UIView {
         guard let viewController = viewController else { return }
         viewController.title = viewController.tabBarItem.title
         let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.backgroundColor = .systemPurple
         viewController.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         viewController.navigationController?.navigationBar.barTintColor = .systemPurple
         viewController.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance

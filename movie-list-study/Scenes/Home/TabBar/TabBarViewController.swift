@@ -11,24 +11,43 @@ import UIKit
 class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.tintColor = .darkGray
+        view.tintColor = AppColors.highlightGreen
         tabBar.isTranslucent = false
-        tabBar.backgroundColor = .systemBackground
-        let controllers = [buildHome(), buildFavorites()]
+        tabBar.backgroundColor = AppColors.black
+        let controllers = [
+            buildHome(),
+            buildSaved(),
+            buildDownloaded(),
+            buildSearch()
+        ]
         viewControllers = controllers.map{ UINavigationController(rootViewController: $0)}
     }
 
     func buildHome() -> UIViewController {
         let homeViewController = HomeViewController(viewModel: HomeViewModel())
-        homeViewController.tabBarItem = UITabBarItem(title: "Início", image: .add, tag: 0)
+        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: .add, tag: 0)
 
         return homeViewController
     }
 
-    func buildFavorites() -> UIViewController {
-        let favoritesViewController = ComingSoonViewController()
-        favoritesViewController.tabBarItem = UITabBarItem(title: "Favoritos", image: .checkmark, tag: 1)
+    func buildSaved() -> UIViewController {
+        let comingSoonController = ComingSoonViewController()
+        comingSoonController.tabBarItem = UITabBarItem(title: "Saved", image: .checkmark, tag: 1)
 
-        return favoritesViewController
+        return comingSoonController
+    }
+
+    func buildDownloaded() -> UIViewController {
+        let downloadedController = ComingSoonViewController()
+        downloadedController.tabBarItem = UITabBarItem(title: "Downloaded", image: .checkmark, tag: 2)
+
+        return downloadedController
+    }
+
+    func buildSearch() -> UIViewController {
+        let searchController = ComingSoonViewController()
+        searchController.tabBarItem = UITabBarItem(title: "Search", image: .checkmark, tag: 3)
+
+        return searchController
     }
 }

@@ -19,6 +19,8 @@
 		73559FA32D9FFC310093B8C6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73559FA22D9FFC310093B8C6 /* HomeViewModel.swift */; };
 		73559FA62D9FFC980093B8C6 /* RequestInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73559FA52D9FFC980093B8C6 /* RequestInfos.swift */; };
 		73559FA82DA0A18B0093B8C6 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73559FA72DA0A18A0093B8C6 /* APIClient.swift */; };
+		737BF42C2DA3227700744C9E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BF42B2DA3227700744C9E /* AppColors.swift */; };
+		737BF42E2DA327D900744C9E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BF42D2DA327D900744C9E /* UIColor+Extensions.swift */; };
 		73897BBC2DA189E3006DD79E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BBB2DA189E3006DD79E /* HomeView.swift */; };
 		73897BBF2DA18C2B006DD79E /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BBE2DA18C2B006DD79E /* HomeCollectionViewCell.swift */; };
 		73897BC22DA18DCD006DD79E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BC12DA18DCD006DD79E /* TabBarViewController.swift */; };
@@ -64,6 +66,8 @@
 		73559FA22D9FFC310093B8C6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		73559FA52D9FFC980093B8C6 /* RequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInfos.swift; sourceTree = "<group>"; };
 		73559FA72DA0A18A0093B8C6 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		737BF42B2DA3227700744C9E /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		737BF42D2DA327D900744C9E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		73897BBB2DA189E3006DD79E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		73897BBE2DA18C2B006DD79E /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		73897BC12DA18DCD006DD79E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		737BF42A2DA3226700744C9E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				737BF42B2DA3227700744C9E /* AppColors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		73897BBA2DA1899B006DD79E /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +223,7 @@
 		73897BC42DA18E37006DD79E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				737BF42A2DA3226700744C9E /* Utils */,
 				73897BC52DA18E3D006DD79E /* ComingSoon */,
 			);
 			path = Components;
@@ -229,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				73897BCE2DA191BE006DD79E /* UIImageView+Extensions.swift */,
+				737BF42D2DA327D900744C9E /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -396,8 +410,10 @@
 				73559FA82DA0A18B0093B8C6 /* APIClient.swift in Sources */,
 				73559F702D9FF5A00093B8C6 /* AppDelegate.swift in Sources */,
 				73559F722D9FF5A00093B8C6 /* SceneDelegate.swift in Sources */,
+				737BF42E2DA327D900744C9E /* UIColor+Extensions.swift in Sources */,
 				73559FA32D9FFC310093B8C6 /* HomeViewModel.swift in Sources */,
 				73897BBF2DA18C2B006DD79E /* HomeCollectionViewCell.swift in Sources */,
+				737BF42C2DA3227700744C9E /* AppColors.swift in Sources */,
 				73897BBC2DA189E3006DD79E /* HomeView.swift in Sources */,
 				73897BD52DA1B157006DD79E /* HomeService.swift in Sources */,
 				73559FA12D9FFC200093B8C6 /* HomeViewController.swift in Sources */,
