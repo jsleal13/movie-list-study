@@ -7,8 +7,10 @@
 
 import Foundation
 import UIKit
+import Combine
 
 final class HomeViewController: BaseViewController {
+    private var cancellable = Set<AnyCancellable>()
     let mainView = HomeView()
     let viewModel: HomeViewModel
 
@@ -25,29 +27,41 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.setDelegates(with: self)
+        refreshMovieList()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    private func refreshMovieList() {
+        viewModel.$movieList.receive(on: DispatchQueue.main).sink { _ in
+            self.mainView.mainCollectionView.reloadData()
+        }.store(in: &cancellable)
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        viewModel.getMoviesList().count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.homeCell, for: indexPath) as? HomeCollectionViewCell
-//        let category = viewModel.getCategories(of: indexPath.row)
-//        cell?.setUp(with: MovieModel())
+
+        let movie = viewModel.getMovie(for: indexPath.row)
+        cell?.setUp(with: movie)
 
         return cell ?? UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let categoryId = viewModel.getCategoryId(indexPath.row)
-//        let viewController = viewModel.buildNextViewController(categoryId: categoryId)
-//        self.navigationController?.pushViewController(viewController, animated: true)
+        let movieId = viewModel.getMovieId(for: indexPath.row)
+        let viewController = viewModel.buildNextViewController(with: movieId)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
     }
 }

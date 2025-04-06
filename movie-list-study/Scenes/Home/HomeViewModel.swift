@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
+import Combine
 
 class HomeViewModel {
-    var movieList: [MovieModel]?
+    @Published var movieList: [MovieModel] = []
     private let service: HomeService
 
     init() {
@@ -21,10 +23,24 @@ class HomeViewModel {
             do {
                 let successResponse = try await service.getTrendingMovies()
                 movieList = successResponse.results
-                print(movieList)
             } catch {
                 print("deu ruim ):")
             }
         }
+    }
+
+    func getMoviesList() -> [MovieModel] { movieList }
+
+    func getMovie(for index: Int) -> MovieModel {
+        movieList[index]
+    }
+
+    func getMovieId(for index: Int) -> Int {
+        movieList[index].id
+    }
+
+    func buildNextViewController(with movieId: Int?) -> UIViewController {
+        guard movieId != nil else { return ComingSoonViewController()}
+        return MovieViewController()
     }
 }

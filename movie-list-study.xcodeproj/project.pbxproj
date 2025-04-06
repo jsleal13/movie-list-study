@@ -21,6 +21,8 @@
 		73559FA82DA0A18B0093B8C6 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73559FA72DA0A18A0093B8C6 /* APIClient.swift */; };
 		737BF42C2DA3227700744C9E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BF42B2DA3227700744C9E /* AppColors.swift */; };
 		737BF42E2DA327D900744C9E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BF42D2DA327D900744C9E /* UIColor+Extensions.swift */; };
+		737BF4312DA3347400744C9E /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BF4302DA3347400744C9E /* MovieViewController.swift */; };
+		737BF4332DA3349400744C9E /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737BF4322DA3349400744C9E /* MovieViewModel.swift */; };
 		73897BBC2DA189E3006DD79E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BBB2DA189E3006DD79E /* HomeView.swift */; };
 		73897BBF2DA18C2B006DD79E /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BBE2DA18C2B006DD79E /* HomeCollectionViewCell.swift */; };
 		73897BC22DA18DCD006DD79E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BC12DA18DCD006DD79E /* TabBarViewController.swift */; };
@@ -68,6 +70,8 @@
 		73559FA72DA0A18A0093B8C6 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		737BF42B2DA3227700744C9E /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		737BF42D2DA327D900744C9E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		737BF4302DA3347400744C9E /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		737BF4322DA3349400744C9E /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		73897BBB2DA189E3006DD79E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		73897BBE2DA18C2B006DD79E /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		73897BC12DA18DCD006DD79E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		737BF42F2DA3345500744C9E /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				737BF4302DA3347400744C9E /* MovieViewController.swift */,
+				737BF4322DA3349400744C9E /* MovieViewModel.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
 		73897BBA2DA1899B006DD79E /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +226,8 @@
 		73897BC32DA18E2B006DD79E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				73897BC52DA18E3D006DD79E /* ComingSoon */,
+				737BF42F2DA3345500744C9E /* Movie */,
 				73559F732D9FF5A00093B8C6 /* BaseViewController.swift */,
 				73897BC42DA18E37006DD79E /* Components */,
 				73559F9F2D9FFC070093B8C6 /* Home */,
@@ -224,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				737BF42A2DA3226700744C9E /* Utils */,
-				73897BC52DA18E3D006DD79E /* ComingSoon */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -414,8 +428,10 @@
 				73559FA32D9FFC310093B8C6 /* HomeViewModel.swift in Sources */,
 				73897BBF2DA18C2B006DD79E /* HomeCollectionViewCell.swift in Sources */,
 				737BF42C2DA3227700744C9E /* AppColors.swift in Sources */,
+				737BF4332DA3349400744C9E /* MovieViewModel.swift in Sources */,
 				73897BBC2DA189E3006DD79E /* HomeView.swift in Sources */,
 				73897BD52DA1B157006DD79E /* HomeService.swift in Sources */,
+				737BF4312DA3347400744C9E /* MovieViewController.swift in Sources */,
 				73559FA12D9FFC200093B8C6 /* HomeViewController.swift in Sources */,
 				73897BC22DA18DCD006DD79E /* TabBarViewController.swift in Sources */,
 				73897BC72DA18E7B006DD79E /* ComingSoonViewController.swift in Sources */,

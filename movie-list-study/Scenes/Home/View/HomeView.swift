@@ -13,18 +13,30 @@ struct CellIdentifier {
 }
 
 class HomeView: UIView {
-    private lazy var mainCollectionView: UICollectionView = {
+    lazy var mainCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = AppColors.backgroundColor
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifier.homeCell)
-        collectionView.backgroundColor = .yellow
 
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
-        collectionView.setCollectionViewLayout(layout, animated: false)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 10
+        layout.itemSize = CGSize(width: 100, height: 150)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        collectionView.collectionViewLayout = layout
         return collectionView
+    }()
+
+    private lazy var titleLabel: UILabel = {
+        let element = UILabel()
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.text = "Welcome, back!"
+        element.font = .boldSystemFont(ofSize: 32)
+        element.textColor = AppColors.textColor
+        return element
     }()
 
     override init(frame: CGRect) {
@@ -39,14 +51,17 @@ class HomeView: UIView {
     }
 
     private func setUpViews() {
+        addSubview(titleLabel)
         addSubview(mainCollectionView)
     }
 
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            mainCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            mainCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            mainCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            mainCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            mainCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            mainCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             mainCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }

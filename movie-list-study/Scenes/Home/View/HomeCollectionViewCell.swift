@@ -8,13 +8,9 @@
 import Foundation
 import UIKit
 
-protocol HomeCollectionViewCellDelegate {
-    func toggleFavorite(_ cell: HomeCollectionViewCell, id: String)
-}
-
 class HomeCollectionViewCell: UICollectionViewCell {
-    var delegate: HomeCollectionViewCellDelegate?
     var movieModel: MovieModel?
+    private let imageUrlExtension = "https://image.tmdb.org/t/p/original"
 
     private lazy var movieImageView: UIImageView = {
         let image = UIImageView()
@@ -22,34 +18,25 @@ class HomeCollectionViewCell: UICollectionViewCell {
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         image.layer.cornerRadius = 8
+        image.backgroundColor = .clear
         return image
-    }()
-
-    private lazy var movieTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 13, weight: .medium)
-        return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setUpTitleLabel()
     }
     
     func setUp(with movie: MovieModel) {
         movieModel = movie
-    }
-
-
-    private func setUpTitleLabel(){
-        addSubview(movieTitleLabel)
+        addSubview(movieImageView)
         NSLayoutConstraint.activate([
-            movieTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-            movieTitleLabel.leadingAnchor.constraint(equalTo: trailingAnchor, constant: 20),
-            movieTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
+            movieImageView.heightAnchor.constraint(equalToConstant: 150),
+            movieImageView.widthAnchor.constraint(equalToConstant: 100),
+            movieImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            movieImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+
+        movieImageView.load(url: imageUrlExtension + movie.posterPath)
     }
 
     required init?(coder: NSCoder) {
