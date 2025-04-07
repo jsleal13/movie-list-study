@@ -15,7 +15,6 @@ class HomeViewModel {
 
     init() {
         self.service = HomeServiceImpl()
-        getTrendingMovies()
     }
 
     func getTrendingMovies() {
@@ -40,7 +39,8 @@ class HomeViewModel {
     }
 
     func buildNextViewController(with movieId: Int?) -> UIViewController {
-        guard movieId != nil else { return ComingSoonViewController()}
-        return MovieViewController()
+        guard let movieId = movieId else { return ComingSoonViewController()}
+        let viewModel = MovieDetailViewModel()
+        return MovieDetailViewController(id: movieId, viewModel: viewModel)
     }
 }

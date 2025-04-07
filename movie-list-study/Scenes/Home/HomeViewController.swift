@@ -27,6 +27,7 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.setDelegates(with: self)
+        viewModel.getTrendingMovies()
         refreshMovieList()
     }
 
