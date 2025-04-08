@@ -8,19 +8,33 @@
 import Foundation
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class TabBarViewController: UITabBarController, UITableViewDelegate, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.tintColor = AppColors.highlightGreen
         tabBar.isTranslucent = false
-        tabBar.backgroundColor = AppColors.black
+
         let controllers = [
             buildHome(),
             buildSaved(),
             buildDownloaded(),
             buildSearch()
         ]
+
         viewControllers = controllers.map{ UINavigationController(rootViewController: $0)}
+
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundColor = AppColors.black
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+
+        let navAppearance = UINavigationBarAppearance()
+        navAppearance.configureWithOpaqueBackground()
+        navAppearance.backgroundColor = AppColors.backgroundColor
+        UINavigationBar.appearance().standardAppearance = navAppearance
+        UINavigationBar.appearance().compactAppearance = navAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
     }
 
     func buildHome() -> UIViewController {

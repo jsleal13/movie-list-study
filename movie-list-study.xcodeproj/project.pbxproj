@@ -33,9 +33,10 @@
 		73897BC72DA18E7B006DD79E /* ComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BC62DA18E7B006DD79E /* ComingSoonViewController.swift */; };
 		73897BC92DA18EC9006DD79E /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BC82DA18EC9006DD79E /* ComingSoonView.swift */; };
 		73897BCF2DA191BE006DD79E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BCE2DA191BE006DD79E /* UIImageView+Extensions.swift */; };
-		73897BD22DA19984006DD79E /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BD12DA19984006DD79E /* MovieModel.swift */; };
+		73897BD22DA19984006DD79E /* TrendingMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BD12DA19984006DD79E /* TrendingMovies.swift */; };
 		73897BD52DA1B157006DD79E /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BD42DA1B157006DD79E /* HomeService.swift */; };
 		73897BD92DA1B21C006DD79E /* HomeRequestInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73897BD82DA1B21C006DD79E /* HomeRequestInfos.swift */; };
+		73E0969C2DA492FD004BABC3 /* FavoriteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0969B2DA492FD004BABC3 /* FavoriteStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,9 +87,10 @@
 		73897BC62DA18E7B006DD79E /* ComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonViewController.swift; sourceTree = "<group>"; };
 		73897BC82DA18EC9006DD79E /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
 		73897BCE2DA191BE006DD79E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
-		73897BD12DA19984006DD79E /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		73897BD12DA19984006DD79E /* TrendingMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovies.swift; sourceTree = "<group>"; };
 		73897BD42DA1B157006DD79E /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		73897BD82DA1B21C006DD79E /* HomeRequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRequestInfos.swift; sourceTree = "<group>"; };
+		73E0969B2DA492FD004BABC3 /* FavoriteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				73559F7D2D9FF5A20093B8C6 /* Info.plist */,
 				73897BBA2DA1899B006DD79E /* App */,
+				73E096992DA492D1004BABC3 /* Utils */,
 				73559FA42D9FFC3B0093B8C6 /* Service */,
 				73897BCA2DA190C3006DD79E /* Extensions */,
 				73897BD02DA19978006DD79E /* Model */,
@@ -283,7 +286,7 @@
 		73897BD02DA19978006DD79E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73897BD12DA19984006DD79E /* MovieModel.swift */,
+				73897BD12DA19984006DD79E /* TrendingMovies.swift */,
 				737BF43B2DA34E1F00744C9E /* MovieDetailModel.swift */,
 			);
 			path = Model;
@@ -305,6 +308,22 @@
 				73897BD82DA1B21C006DD79E /* HomeRequestInfos.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		73E096992DA492D1004BABC3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				73E0969A2DA492E1004BABC3 /* FavoriteStorage */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		73E0969A2DA492E1004BABC3 /* FavoriteStorage */ = {
+			isa = PBXGroup;
+			children = (
+				73E0969B2DA492FD004BABC3 /* FavoriteStorage.swift */,
+			);
+			name = FavoriteStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,7 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73897BD22DA19984006DD79E /* MovieModel.swift in Sources */,
+				73897BD22DA19984006DD79E /* TrendingMovies.swift in Sources */,
 				73897BCF2DA191BE006DD79E /* UIImageView+Extensions.swift in Sources */,
 				73897BD92DA1B21C006DD79E /* HomeRequestInfos.swift in Sources */,
 				73559F742D9FF5A00093B8C6 /* BaseViewController.swift in Sources */,
@@ -454,6 +473,7 @@
 				737BF4332DA3349400744C9E /* MovieDetailViewModel.swift in Sources */,
 				73897BBC2DA189E3006DD79E /* HomeView.swift in Sources */,
 				737BF43A2DA34D9D00744C9E /* MovieDetailView.swift in Sources */,
+				73E0969C2DA492FD004BABC3 /* FavoriteStorage.swift in Sources */,
 				73897BD52DA1B157006DD79E /* HomeService.swift in Sources */,
 				737BF4312DA3347400744C9E /* MovieDetailViewController.swift in Sources */,
 				73559FA12D9FFC200093B8C6 /* HomeViewController.swift in Sources */,
