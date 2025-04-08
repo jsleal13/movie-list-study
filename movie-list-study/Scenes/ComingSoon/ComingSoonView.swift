@@ -69,13 +69,4 @@ final class ComingSoonView: UIView {
             warningImage.heightAnchor.constraint(equalToConstant: imageHeight)
         ])
     }
-
-    func setNavBar(viewController: UIViewController?) {
-        guard let viewController = viewController else { return }
-        viewController.title = viewController.tabBarItem.title
-        let navigationBarAppearance = UINavigationBarAppearance()
-        viewController.navigationController?.navigationBar.standardAppearance = navigationBarAppearance
-        viewController.navigationController?.navigationBar.barTintColor = .systemPurple
-        viewController.navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
-    }
 }

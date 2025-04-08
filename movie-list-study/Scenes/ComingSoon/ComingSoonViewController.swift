@@ -15,9 +15,4 @@ class ComingSoonViewController: BaseViewController {
         mainView = ComingSoonView()
         view = mainView
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        mainView?.setNavBar(viewController: self)
-    }
 }
