@@ -8,8 +8,13 @@
 import Foundation
 import UIKit
 
+protocol MovieDetailViewDelegate {
+    func toggleFavorite(movie: MovieDetailModel)
+}
+
 class MovieDetailView: UIView {
     private let imageUrlExtension = "https://image.tmdb.org/t/p/original"
+    var delegate: MovieDetailViewDelegate?
 
     var movie : MovieDetailModel? {
         didSet {
@@ -19,6 +24,7 @@ class MovieDetailView: UIView {
             statusLabel.text = movie.status
             mainImage.load(url: imageUrlExtension + movie.posterPath)
             runtimeLabel.text = "Duration: \(movie.runtime)min"
+            favoriteButton.setImage(FavoriteStorage.shared.isFavorite(movie: movie) ? UIImage(named: "fav") : UIImage(named: "unfav"), for: .normal)
         }
     }
 
@@ -107,11 +113,11 @@ class MovieDetailView: UIView {
     }()
 
     private lazy var favoriteButton: UIButton = {
-        let element = UIButton()
+        let element = UIButton(type: .custom)
+        element.setTitle("Add to favorites", for: .normal)
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = .yellow
-        element.clipsToBounds = true
-        element.layer.cornerRadius = 10
+        element.titleLabel?.font = .systemFont(ofSize: 16)
+        element.addTarget(self, action: #selector(toggleFavoriteMovie), for: .touchUpInside)
         return element
     }()
 
@@ -141,13 +147,28 @@ class MovieDetailView: UIView {
 
             mainImage.heightAnchor.constraint(equalToConstant: 430),
 
-            favoriteButton.heightAnchor.constraint(equalToConstant: 32),
-            favoriteButton.widthAnchor.constraint(equalToConstant: 32)
+            favoriteButton.heightAnchor.constraint(equalToConstant: 18),
+            favoriteButton.widthAnchor.constraint(equalToConstant: 18)
         ])
     }
 
     func configureMovie(with movie: MovieDetailModel?) {
         self.movie = movie
+    }
+
+    @objc
+    func toggleFavoriteMovie(_ sender: UIButton) {
+        guard let movie = movie else { return }
+        delegate?.toggleFavorite(movie: movie)
+        setFavButtonIcon()
+    }
+
+    private func setFavButtonIcon() {
+        guard let movie = movie else { return }
+        let isFavorite = FavoriteStorage.shared.isFavorite(movie: movie)
+        let image = isFavorite ? UIImage(named: "fav") : UIImage(named: "unfav")
+
+        favoriteButton.setImage(image, for: .normal)
     }
 
     required init?(coder: NSCoder) {

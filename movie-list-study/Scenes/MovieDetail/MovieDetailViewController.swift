@@ -8,11 +8,12 @@
 import Foundation
 import Combine
 
-class MovieDetailViewController: BaseViewController {
+class MovieDetailViewController: BaseViewController, MovieDetailViewDelegate {
     private var id: Int
     let mainView = MovieDetailView()
     let viewModel: MovieDetailViewModel
     private var cancellable = Set<AnyCancellable>()
+    let storage = FavoriteStorage.shared
 
     init(id: Int, viewModel: MovieDetailViewModel) {
         self.id = id
@@ -23,6 +24,7 @@ class MovieDetailViewController: BaseViewController {
     override func loadView() {
         super.loadView()
         view = mainView
+        mainView.delegate = self
     }
 
     override func viewDidLoad() {
@@ -35,6 +37,10 @@ class MovieDetailViewController: BaseViewController {
         viewModel.$movie.receive(on: DispatchQueue.main).sink { movie in
             self.mainView.configureMovie(with: movie)
         }.store(in: &cancellable)
+    }
+
+    func toggleFavorite(movie: MovieDetailModel) {
+        storage.addMovieToFavorites(movie: movie)
     }
 
     required init?(coder: NSCoder) {
